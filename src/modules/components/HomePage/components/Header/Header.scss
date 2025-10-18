@@ -1,0 +1,20 @@
+@use '@/modules/shared/styles/main.scss' as *;
+
+.header {
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    &-title {
+      @extend %font_h1;
+      @include ContentPaddingInline;
+      text-align: left;
+    }
+
+    &-slider {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+}

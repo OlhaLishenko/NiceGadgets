@@ -1,0 +1,31 @@
+@use '@/modules/shared/styles/main.scss' as *;
+
+.products-nav {
+  grid-column: 1/-1;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    align-items: center;
+  }
+
+  &__icon {
+    &--arrow {
+      color: $mid-grey;
+    }
+  }
+
+  &__text {
+    @include Font-demi-bold(12px, 100%);
+    color: $primary-text-color;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:last-of-type {
+      color: $light-grey-text;
+      pointer-events: none;
+      cursor: none;
+    }
+  }
+}

@@ -1,0 +1,7 @@
+@use '@/modules/shared/styles/main.scss' as *;
+
+.favourites {
+  &__productList {
+    grid-column: 1/-1;
+  }
+}

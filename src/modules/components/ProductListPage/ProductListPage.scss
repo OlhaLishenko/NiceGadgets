@@ -1,0 +1,11 @@
+@use '@/modules/shared/styles/main.scss' as *;
+
+.productList {
+  &__body {
+    grid-column: 1/-1;
+  }
+
+  &__pages {
+    grid-column: 1/-1;
+  }
+}

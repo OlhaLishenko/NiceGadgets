@@ -1,0 +1,12 @@
+@use '@/modules/shared/styles/main.scss' as *;
+
+.section-title {
+  margin: 0;
+  padding: 0;
+  font-weight: 800;
+  font-style: Bold;
+  font-size: 22px;
+  line-height: 140%;
+  letter-spacing: 0%;
+  color: $primary-text-color;
+}

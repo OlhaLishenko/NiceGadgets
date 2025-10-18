@@ -1,0 +1,12 @@
+@use '@/modules/shared/styles/main.scss' as *;
+
+.page-pagination {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 16px;
+
+  &--list {
+    gap: 8px;
+  }
+}

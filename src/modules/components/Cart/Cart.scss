@@ -1,0 +1,13 @@
+@use '@/modules/shared/styles/main.scss' as *;
+
+.cart {
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  &__productList {
+    gap: 16px;
+  }
+}

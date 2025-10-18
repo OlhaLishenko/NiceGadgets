@@ -1,0 +1,84 @@
+@use '@/modules/shared/styles/main.scss' as *;
+
+.slider {
+  &__image-wrapper {
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+    width: 100%;
+    scroll-snap-type: x mandatory;
+    scroll-snap-stop: always;
+    cursor: grab;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    &:active {
+      cursor: grabbing;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    user-select: none;
+    height: fit-content;
+    flex-grow: 0;
+    flex-shrink: 0;
+    transition: all ease-in-out 500ms;
+    scroll-snap-align: center;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    background-color: rgba($color: $primary-text-color, $alpha: 1);
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+
+  &__buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+    justify-content: center;
+
+    &-button {
+      height: 24px;
+      width: 24px;
+      padding: 10px 5px;
+      border: none;
+      position: relative;
+      background-color: transparent;
+      cursor: pointer;
+
+      &::before {
+        content: '';
+        position: absolute;
+        width: 14px;
+        height: 4px;
+        background-color: $light-grey;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 2px;
+        transition: all 200ms ease;
+      }
+
+      &:hover::before {
+        content: '';
+        position: absolute;
+        width: 14px;
+        height: 4px;
+        background-color: $primary-text-color;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(1.4);
+        border-radius: 2px;
+      }
+
+      &--active::before {
+        background-color: $primary-text-color;
+      }
+    }
+  }
+}
