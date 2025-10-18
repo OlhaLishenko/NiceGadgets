@@ -9,6 +9,16 @@
   justify-content: space-between;
   background-color: $primary-bg-color;
   z-index: 10;
+  transform: translateX(-100%);
+  pointer-events: none;
+  user-select: none;
+  transition: all 0.3s ease-in-out;
+
+  &--active {
+    transform: translateX(0);
+    pointer-events: all;
+    user-select: auto;
+  }
 
   &__top {
     display: flex;

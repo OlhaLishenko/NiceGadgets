@@ -1,21 +1,21 @@
 import './TopBar.scss';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
 import logo from '../../../global-assets/logo.svg';
 import type { IconListItem } from '../../shared/types/IconList';
+import { useContext } from 'react';
+import { ProductListContext } from '../../shared/context/ProductListContext';
 
 type TopBarProps = {
   buttonData: IconListItem;
 };
 
 export const TopBar: React.FC<TopBarProps> = ({ buttonData }) => {
-  // const { setAsidePage } = useContext(ProductListContext);
-  const location = useLocation();
-  const navigate = useNavigate();
+  const { setIsAside } = useContext(ProductListContext);
+  // const location = useLocation();
+  // const navigate = useNavigate();
   const IconSvg = buttonData.valuePath;
 
   const handleClose = () => {
-    navigate(-1);
-    // setAsidePage(false);
+    setIsAside(false);
   };
 
   return (
@@ -25,16 +25,16 @@ export const TopBar: React.FC<TopBarProps> = ({ buttonData }) => {
       </div>
       <div className="top-bar__nav">
         {buttonData.valueName === 'menu' ? (
-          <Link
-            to="./navigation"
-            state={{
-              prevPage: location.pathname === '/' ? '/home' : location.pathname,
-            }}
+          <button
+            // to="./navigation"
+            // state={{
+            //   prevPage: location.pathname === '/' ? '/home' : location.pathname,
+            // }}
             className="top-bar__button"
-            // onClick={() => setAsidePage(true)}
+            onClick={() => setIsAside(true)}
           >
             <IconSvg className="top-bar__button--icon" />
-          </Link>
+          </button>
         ) : (
           <button onClick={handleClose} className="top-bar__button">
             <IconSvg className="top-bar__button--icon" />

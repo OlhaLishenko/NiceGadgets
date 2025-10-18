@@ -1,10 +1,6 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import './CardItem.scss';
 import type { Product } from '../../types/Product';
-import { CircleButton } from '../CircleButton';
-import IconLike from '../../../../global-assets/icons/icon-like.svg?react';
-import IconLikeFill from '../../../../global-assets/icons/icon-like-fill.svg?react';
-import type { IconComponent } from '../../types/IconComponent';
 import { Link } from 'react-router-dom';
 import { BtnAdd } from '../BtnAdd';
 import { BtnLike } from '../BtnLike';

@@ -17,6 +17,8 @@ type ProductListContextType = {
   setSelectedProduct: Dispatch<SetStateAction<ProductDetails | null>>;
   productListDetails: ProductDetails[];
   setProductListDetails: Dispatch<SetStateAction<ProductDetails[]>>;
+  isAside: boolean;
+  setIsAside: Dispatch<SetStateAction<boolean>>;
 };
 
 export const ProductListContext = createContext<ProductListContextType>({
@@ -26,6 +28,8 @@ export const ProductListContext = createContext<ProductListContextType>({
   setSelectedProduct: () => {},
   productListDetails: [],
   setProductListDetails: () => {},
+  isAside: false,
+  setIsAside: () => {},
 });
 
 export const ProductListProvider = ({
@@ -40,6 +44,8 @@ export const ProductListProvider = ({
   const [selectedProduct, setSelectedProduct] = useState<ProductDetails | null>(
     null,
   );
+
+  const [isAside, setIsAside] = useState(false);
 
   const { productId } = useParams();
 
@@ -61,6 +67,8 @@ export const ProductListProvider = ({
         setSelectedProduct,
         productListDetails,
         setProductListDetails,
+        isAside,
+        setIsAside,
       }}
     >
       {children}
