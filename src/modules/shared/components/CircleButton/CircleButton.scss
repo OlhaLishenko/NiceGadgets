@@ -3,17 +3,10 @@
 .btn-circle {
   @include btn_circle();
   display: flex;
+  width: 32px;
+  height: 32px;
 
   &__content {
     @include Font-demi-bold(14px, 21px);
-  }
-
-  &--productCard {
-    height: 40px;
-  }
-
-  &--footer {
-    width: 32px;
-    height: 32px;
   }
 }

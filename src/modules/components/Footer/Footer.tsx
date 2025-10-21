@@ -3,21 +3,17 @@ import './Footer.scss';
 import logo from '../../../global-assets/logo.svg';
 import { CircleButton } from '../../shared/components/CircleButton';
 import { Btn_Footer_Back } from '../../shared/variables';
-import type { IconComponent } from '../../shared/types/IconComponent';
 import { icons } from '../../../global-assets/static';
 
 type FooterProps = {};
 
-export const Footer: React.FC<FooterProps> = ({}) => {
+export const Footer: React.FC<FooterProps> = React.memo(({}) => {
+  console.log('is footer render');
+
   const f_navItems = ['Github', 'Contacts', 'rights'];
 
-  const footerIconComponent: IconComponent = {
-    iconMain: icons.arrowUp.valuePath,
-    iconSelected: null,
-  };
-
   return (
-    <footer className="footer container-column">
+    <footer className="footer">
       <div className="footer__container">
         <div className="footer__top">
           <img src={logo} alt="Compamy logo" />
@@ -31,10 +27,10 @@ export const Footer: React.FC<FooterProps> = ({}) => {
         </nav>
 
         <label className="footer__btn">
-          <CircleButton icons={footerIconComponent} />
+          <CircleButton icon={icons.arrowUp.valuePath} />
           {Btn_Footer_Back}
         </label>
       </div>
     </footer>
   );
-};
+});

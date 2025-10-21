@@ -1,33 +1,26 @@
 import React from 'react';
 import './CircleButton.scss';
-import type { IconComponent } from '../../types/IconComponent';
-import classNames from 'classnames';
 
 type CircleButtonProps = {
-  icons: IconComponent;
+  icon: React.FC<React.SVGProps<SVGSVGElement>> | string;
 };
 
-export const CircleButton: React.FC<CircleButtonProps> = ({ icons }) => {
-  const isString = typeof icons.iconMain === 'string';
-  const iconText = icons.iconMain as string;
+export const CircleButton: React.FC<CircleButtonProps> = React.memo(
+  ({ icon }) => {
+    const isString = typeof icon === 'string';
+    const iconText = icon as string;
+    const IconMain = icon as React.FC<React.SVGProps<SVGSVGElement>>;
 
-  return (
-    <button
-      className={classNames('btn-circle', {
-        'btn-circle--productCard': icons.iconSelected,
-        'btn-circle--footer': !icons.iconSelected,
-      })}
-    >
-      {isString ? (
-        <span className="btn-circle__content">{iconText}</span>
-      ) : (
-        <>
-          <icons.iconMain className="btn-circle__image" />
-          {icons.iconSelected && (
-            <icons.iconSelected className="btn-circle__image btn-circle__image--select" />
-          )}
-        </>
-      )}
-    </button>
-  );
-};
+    console.log('is butn render');
+
+    return (
+      <div className="btn-circle">
+        {isString ? (
+          <span className="btn-circle__content">{iconText}</span>
+        ) : (
+          <IconMain className="btn-circle__image" />
+        )}
+      </div>
+    );
+  },
+);

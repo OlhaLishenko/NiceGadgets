@@ -10,30 +10,17 @@ export const PagePagination: React.FC<PagePaginationProps> = ({}) => {
   return (
     <div className="page-pagination">
       <div className="page-pagination page-pagination--arrow">
-        <CircleButton
-          icons={{
-            iconMain: icons.arrowLeft.valuePath,
-          }}
-        />
+        <CircleButton icon={icons.arrowLeft.valuePath} />
       </div>
 
       <div className="page-pagination page-pagination--list">
         {pages.map(page => (
-          <CircleButton
-            icons={{
-              iconMain: `${page}`,
-            }}
-            key={page}
-          />
+          <CircleButton icon={`${page}`} key={page} />
         ))}
       </div>
 
       <div className="page-pagination page-pagination--arrow">
-        <CircleButton
-          icons={{
-            iconMain: icons.arrowRight.valuePath,
-          }}
-        />
+        <CircleButton icon={icons.arrowRight.valuePath} />
       </div>
     </div>
   );

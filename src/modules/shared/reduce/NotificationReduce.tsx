@@ -1,38 +1,64 @@
-import { useReducer } from 'react';
+import { createContext, useReducer } from 'react';
 
-interface notifType {
-  state: boolean;
+type State = {
+  status: boolean;
   title: string;
-}
-
-export const initNotifState: notifType = {
-  state: false,
-  title: '',
+  actionResult: 'successfully' | 'alarm' | '';
 };
 
-type notifActions = { type: 'addProduct' } | { type: 'addExistedProduct' };
+export const initState: State = {
+  status: false,
+  title: '',
+  actionResult: '',
+};
 
-export const nitifReducer = (
-  notifState: notifType,
-  notifAction: notifActions,
-) => {
-  switch (notifAction.type) {
+type Action =
+  | { type: 'addProduct'; payload: string }
+  | { type: 'addExistedProduct'; payload: string }
+  | { type: 'cancel' };
+
+export const reducer = (state: State, action: Action) => {
+  switch (action.type) {
     case 'addProduct':
       return {
-        state: true,
-        title: 'Product added to card',
+        status: true,
+        title: action.payload,
+        actionResult: 'successfully',
       };
     case 'addExistedProduct':
       return {
-        state: true,
-        title: 'Product has already in a cart',
+        status: true,
+        title: action.payload,
+        actionResult: 'alarm',
+      };
+    case 'cancel':
+      return {
+        status: false,
+        title: initState.title,
+        actionResult: '',
       };
     default:
-      return notifState;
+      return state;
   }
 };
 
-export const [notifState, notifDispatch] = useReducer(
-  nitifReducer,
-  initNotifState,
-);
+export const StateContext = createContext<State>(initState);
+
+export const DispatchContext = createContext<React.Dispatch<Action>>(() => {});
+
+export const GlobalNotifProvider = ({
+  children,
+}: {
+  children: React.ReactNode;
+}) => {
+  const [state, dispatch] = useReducer<React.Reducer<State, Action>>(
+    reducer,
+    initState,
+  );
+
+  return (
+    <DispatchContext.Provider value={dispatch}>
+      <StateContext.Provider value={state}>{children}</StateContext.Provider>
+    </DispatchContext.Provider>
+  );
+};

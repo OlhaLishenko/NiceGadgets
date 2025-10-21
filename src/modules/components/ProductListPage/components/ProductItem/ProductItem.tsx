@@ -1,9 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import './ProductItem.scss';
-import { Link, useLocation, useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import { ProductsNav } from '../../../../shared/components/ProductsNav';
-import { icons } from '../../../../../global-assets/static';
-import { TextSmall } from '../../../../shared/components/TextSmall';
 import { SectionTitle } from '../../../../shared/components/SectionTitle/SectionTitle';
 import { fetchData } from '../../../../shared/utils/fetchClient';
 import { Loader } from '../../../../shared/components/Loader';
@@ -92,35 +90,37 @@ export const ProductItem: React.FC<ProductItemProps> = ({}) => {
 
   return (
     <>
-      <div className="productItem container-column">
-        {!selectedProduct ? (
-          <Loader />
-        ) : (
-          <div className="productItem__content">
-            <header className="productItem__header">
-              <div className="header__productItem header">
-                <ProductsNav />
-                <BackButton
-                  path={pathBack}
-                  backState={{ productId: selectedProduct.id }}
-                />
-                <SectionTitle text={selectedProduct.name} />
-              </div>
-            </header>
+      <div className="productItem">
+        <div className="productItem__content-wrapper">
+          {!selectedProduct ? (
+            <Loader />
+          ) : (
+            <div className="productItem__content">
+              <header className="productItem__header">
+                <div className="header__productItem header">
+                  <ProductsNav />
+                  <BackButton
+                    path={pathBack}
+                    backState={{ productId: selectedProduct.id }}
+                  />
+                  <SectionTitle text={selectedProduct.name} />
+                </div>
+              </header>
 
-            <div className="productItem__body">
-              <ProductImage selectedProduct={selectedProduct} />
+              <div className="productItem__body">
+                <ProductImage selectedProduct={selectedProduct} />
 
-              <div className="productItem__details">
-                <ProductProperties product={productData} />
-                <ProductAbout
-                  productDescription={selectedProduct.description}
-                />
-                <ProductTechSpecs properties={productProperties} />
+                <div className="productItem__details">
+                  <ProductProperties product={productData} />
+                  <ProductAbout
+                    productDescription={selectedProduct.description}
+                  />
+                  <ProductTechSpecs properties={productProperties} />
+                </div>
               </div>
             </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
 
       <SliderProvider>

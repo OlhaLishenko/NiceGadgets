@@ -4,11 +4,9 @@
   position: sticky;
   z-index: 2;
   top: 25px;
-  display: flex;
+  display: none;
 
-  border: 1px solid $primary-blue;
   border-radius: 8px;
-  background-color: $light-blue;
   width: 95%;
   opacity: 0;
   transform: translateY(-200%);
@@ -19,6 +17,16 @@
     opacity: 1;
     display: flex;
     transition: all 0.3s ease-in-out;
+  }
+
+  &--successfully {
+    border: 1px solid $primary-blue;
+    background-color: $light-blue;
+  }
+
+  &--alarm {
+    border: 1px solid lightgreen;
+    background-color: green;
   }
 
   &__title {

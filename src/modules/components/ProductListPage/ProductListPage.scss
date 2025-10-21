@@ -1,6 +1,12 @@
 @use '@/modules/shared/styles/main.scss' as *;
 
 .productList {
+  @include Grid-column();
+
+  &__content {
+    grid-column: 1/-1;
+  }
+
   &__body {
     grid-column: 1/-1;
   }

@@ -4,11 +4,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import { SliderContext } from '../../context/SliderContext';
 
-type CircleButtonProps = {
+type SliderButtonProps = {
   itemAmount: number;
 };
 
-export const SliderButtons: React.FC<CircleButtonProps> = ({ itemAmount }) => {
+export const SliderButtons: React.FC<SliderButtonProps> = ({ itemAmount }) => {
   const { setButton, setCurrentSlideIndex, currentSlideIndex } =
     useContext(SliderContext);
 

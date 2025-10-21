@@ -1,4 +1,5 @@
 @use './variables' as *;
+@use './mixins' as *;
 
 %font_h1 {
   font-weight: 800;
@@ -22,9 +23,3 @@
   line-height: 21px;
   color: $light-grey-text;
 }
-
-// %header {
-//   display: flex;
-//   flex-direction: column;
-//   gap: 24px;
-// }

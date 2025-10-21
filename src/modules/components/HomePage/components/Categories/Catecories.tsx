@@ -8,7 +8,7 @@ type CategoriesProps = {};
 
 export const Categories: React.FC<CategoriesProps> = ({}) => {
   return (
-    <section className="categories container-column">
+    <section className="categories">
       <div className="categories__wrapper">
         <SectionTitle text={'Shop by category'} />
         <div className="categories__content">

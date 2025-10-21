@@ -1,5 +1,5 @@
-import iconStroke from './icons/icon-stroke.svg';
-import iconStrokeDark from './icons/icon-stroke.svg';
+// import iconStroke from './icons/icon-stroke.svg';
+// import iconStrokeDark from './icons/icon-stroke.svg';
 import logoCompany from './logo.svg';
 
 import MenuIcon from './icons/icon-menu.svg?react';
@@ -12,6 +12,9 @@ import ArrowRightIcon from './icons/icon-arrow-right.svg?react';
 import ArrowLeftIcon from './icons/icon-arrow-left.svg?react';
 import HomeIcon from './icons/icon-home.svg?react';
 import CartIcon from './icons/icon-shopping-bag.svg?react';
+import PlusIcon from './icons/icon-plus.svg?react';
+import MinusIcon from './icons/icon-minus.svg?react';
+
 import primaryImage from './/images/banner-primary-image.png';
 import accessoriesImage from './images/banner-accessories.png';
 import phonesImage from './images/banner-phones.png';
@@ -19,6 +22,8 @@ import tabletsImage from './images/banner-tablets.png';
 import phones from './images/category-phones.webp';
 import accessories from './images/category-accessories.png';
 import tablets from './images/category-tablets.png';
+import cartIsEmpty from './images/cart-is-empty.png';
+
 import type { ImageData } from '../modules/shared/types/Image';
 import type { Category } from '../modules/shared/types/Category';
 import type { IconList } from '../modules/shared/types/IconList';
@@ -34,6 +39,8 @@ export const icons: IconList = {
   home: { valuePath: HomeIcon, valueName: 'home' },
   close: { valuePath: IconClose, valueName: 'close' },
   cart: { valuePath: CartIcon, valueName: 'cart' },
+  plus: { valuePath: PlusIcon, valueName: 'plus' },
+  minus: { valuePath: MinusIcon, valueName: 'minus' },
 };
 
 export const images: ImageData[] = [
@@ -73,9 +80,9 @@ export const imageCategories: Category[] = [
   },
 ];
 
-export const iconsGlobal = {
-  iconStroke: iconStroke,
-  iconStrokeDark: iconStrokeDark,
-};
+// export const iconsGlobal = {
+//   iconStroke: iconStroke,
+//   iconStrokeDark: iconStrokeDark,
+// };
 
 export const logo: string = logoCompany;

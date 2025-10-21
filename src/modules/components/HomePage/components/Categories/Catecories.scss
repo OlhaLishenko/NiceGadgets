@@ -1,7 +1,7 @@
 @use '@/modules/shared/styles/main.scss' as *;
 
 .categories {
-
+  @include Grid-column();
 
   &__wrapper {
     grid-column: 1/-1;

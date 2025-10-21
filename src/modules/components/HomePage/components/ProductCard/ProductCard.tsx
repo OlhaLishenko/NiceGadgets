@@ -3,8 +3,7 @@ import './ProductCard.scss';
 import type { Product } from '../../../../shared/types/Product';
 import { Btn_Title_Add } from '../../../../shared/variables';
 import { CircleButton } from '../../../../shared/components/CircleButton';
-// import IconLike from '../../../../../global-assets/icons/icon-like.svg';
-import { icons } from '../../assets/assets';
+import { icons } from '../../../../../global-assets/static';
 
 type ProductCardProps = {
   product: Product;
@@ -46,7 +45,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           <button className="product-card__btns product-card__btns--add">
             {Btn_Title_Add}
           </button>
-          <CircleButton content={icons.like} />
+          <CircleButton icon={icons.like.valuePath} />
         </div>
       </div>
     </div>

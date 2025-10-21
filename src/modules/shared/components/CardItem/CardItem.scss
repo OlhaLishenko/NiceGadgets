@@ -3,19 +3,19 @@
 .product-card {
   display: flex;
   flex-direction: column;
-  gap: $gap;
+  gap: 24px;
   border: $standart-border solid $light-grey;
   border-radius: $standart-radius;
   background-color: white;
   user-select: none;
   scroll-snap-align: start;
   text-decoration: none;
+  padding: 32px;
 
-  &__container {
+  &__container-info {
     display: flex;
     flex-direction: column;
-    gap: $gap;
-    margin: 32px;
+    gap: 8px;
   }
 
   &__image-wrapper {
@@ -23,7 +23,7 @@
     object-fit: cover;
     justify-content: center;
     aspect-ratio: 1 / 1;
-    height: -webkit-fill-available;
+    height: 130px;
   }
 
   &__image {
@@ -34,6 +34,7 @@
 
   &__title {
     @include Font-demi-bold(14px, 21px);
+    text-decoration: none;
   }
 
   &__info {

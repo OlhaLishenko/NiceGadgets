@@ -14,7 +14,7 @@ export const ProductSlider: React.FC<ProductSliderProps> = ({ content }) => {
 
   return (
     <section className="product-slider" ref={sliderRef}>
-      <div className="product-slider__top container-column">
+      <div className="product-slider__top">
         <div className="product-slider__top__wrapper">
           <SectionTitle text={content.title} />
           <SliderButtons itemAmount={content.data.length} />

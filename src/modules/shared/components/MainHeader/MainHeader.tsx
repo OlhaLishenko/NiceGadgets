@@ -14,14 +14,12 @@ export const MainHeader: React.FC<MainHeaderProps> = ({
 }) => {
   return (
     <header className="main-header">
-      <div className="container-column">
-        <div className="main-header__wrapper">
-          <div className="main-header__top">
-            <ProductsNav />
-            <SectionTitle text={pageTitle} />
-          </div>
-          <span className="main-header__count">{productAmount} models</span>
+      <div className="main-header__wrapper">
+        <div className="main-header__top">
+          <ProductsNav />
+          <SectionTitle text={pageTitle} />
         </div>
+        <span className="main-header__count">{productAmount} models</span>
       </div>
     </header>
   );

@@ -1,10 +1,13 @@
 @use '@/modules/shared/styles/main.scss' as *;
 
 .productItem {
+  @include Grid-column();
   margin-bottom: 56px;
 
   &__content {
-    grid-column: 1 / -1;
+    &-wrapper {
+      grid-column: 1 / -1;
+    }
   }
 
   &__details {

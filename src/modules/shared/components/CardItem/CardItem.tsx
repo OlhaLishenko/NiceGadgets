@@ -21,22 +21,34 @@ export const CardItem: React.FC<CardItemProps> = ({ product }) => {
   ];
 
   return (
-    <Link
-      className="product-card"
-      to={`${product.itemId}`}
-      state={{
-        productPrice: {
-          price: product.price,
-          fullPrice: product.fullPrice,
-        },
-      }}
-      id={product.itemId}
-    >
-      <div className="product-card__container">
-        <div className="product-card__image-wrapper">
-          <img src={`/${image}`} className="product-card__image" />
-        </div>
-        <p className="product-card__title">{name}</p>
+    <div className="product-card">
+      <Link
+        className="product-card__image-wrapper"
+        to={`${product.itemId}`}
+        state={{
+          productPrice: {
+            price: product.price,
+            fullPrice: product.fullPrice,
+          },
+        }}
+        id={product.itemId}
+      >
+        <img src={`/${image}`} className="product-card__image" />
+      </Link>
+      <div className="product-card__container-info">
+        <Link
+          className="product-card__title"
+          to={`${product.itemId}`}
+          state={{
+            productPrice: {
+              price: product.price,
+              fullPrice: product.fullPrice,
+            },
+          }}
+          id={product.itemId}
+        >
+          <p className="product-card__title">{name}</p>
+        </Link>
         <ProductPrice price={price} fullPrice={fullPrice} textStyle="small" />
 
         <hr className="product-card__separator" />
@@ -48,6 +60,6 @@ export const CardItem: React.FC<CardItemProps> = ({ product }) => {
           <BtnLike buttonSize="small" productId={product.itemId} />
         </div>
       </div>
-    </Link>
+    </div>
   );
 };

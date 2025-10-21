@@ -4,7 +4,3 @@ export interface ImageData {
   src: string;
   alt: string;
 }
-
-// export type ImageMap = {
-//   [P in ImageKey]: ImageData;
-// };

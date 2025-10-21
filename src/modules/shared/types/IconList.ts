@@ -41,9 +41,12 @@ export type IconList = {
     valuePath: React.FC<React.SVGProps<SVGSVGElement>>;
     valueName: string;
   };
-};
-
-export type IconListItem = {
-  valuePath: React.FC<React.SVGProps<SVGSVGElement>>;
-  valueName: string;
+  plus: {
+    valuePath: React.FC<React.SVGProps<SVGSVGElement>>;
+    valueName: string;
+  };
+  minus: {
+    valuePath: React.FC<React.SVGProps<SVGSVGElement>>;
+    valueName: string;
+  };
 };

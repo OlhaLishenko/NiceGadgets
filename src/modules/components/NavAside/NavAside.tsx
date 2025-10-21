@@ -41,7 +41,7 @@ export const NavAside: React.FC<NavAsideProps> = ({}) => {
     >
       <div className="nav-aside__top">
         <TopBar buttonData={icons.close} />
-        <nav className="nav-aside__nav container-column">
+        <nav className="nav-aside__nav">
           <ul className="nav-aside__list">
             {Btn_Nav_List.map(listItem => (
               <li key={listItem}>

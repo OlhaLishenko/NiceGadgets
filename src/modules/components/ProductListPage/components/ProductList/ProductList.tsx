@@ -3,8 +3,8 @@ import './ProductList.scss';
 import type { Product } from '../../../../shared/types/Product';
 import { CardItem } from '../../../../shared/components/CardItem';
 import { useLocation } from 'react-router-dom';
-import { NotificationContext } from '../../../../shared/context/CartContext copy';
 import { Notification } from '../../../../shared/components/Notification';
+import { StateContext } from '../../../../shared/reduce/NotificationReduce';
 
 type ProductListProps = {
   products: Product[];
@@ -13,7 +13,7 @@ type ProductListProps = {
 export const ProductList: React.FC<ProductListProps> = ({ products }) => {
   const location = useLocation();
   const currentProduct = location.state?.productId;
-  const { notification, setNotification } = useContext(NotificationContext);
+  const state = useContext(StateContext);
 
   console.log(currentProduct);
 
@@ -29,7 +29,7 @@ export const ProductList: React.FC<ProductListProps> = ({ products }) => {
 
   return (
     <div className="products-list">
-      <Notification title="Product added to cart" />
+      <Notification title={state.title} />
       {products.map(product => (
         <CardItem product={product} key={product.id} />
       ))}

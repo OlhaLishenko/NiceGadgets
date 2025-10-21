@@ -6,26 +6,30 @@ import { TopBar } from '../TopBar';
 import { Footer } from '../Footer';
 import { NavAside } from '../NavAside';
 import { ProductListProvider } from '../../shared/context/ProductListContext';
-import { CartProvider } from '../../shared/context/CartContext';
+// import { CartProvider } from '../../shared/context/CartContext';
 import { FavesProvider } from '../../shared/context/FavesContext';
+import { GlobalNotifProvider } from '../../shared/reduce/NotificationReduce';
+import { GlobalCartListProvider } from '../../shared/reduce/CartReducer';
 
 export const App: React.FC = () => {
   return (
     <ProductListProvider>
-      <CartProvider>
-        <FavesProvider>
-          <div className="app">
-            <div className="app__content">
-              <NavAside />
-              <div className="app__content-wrapper-top">
-                <TopBar buttonData={icons.menu} />
-                <Outlet />
+      <FavesProvider>
+        <GlobalCartListProvider>
+          <GlobalNotifProvider>
+            <div className="app">
+              <div className="app-content">
+                <NavAside />
+                <div className="app__content-top">
+                  <TopBar buttonData={icons.menu} />
+                  <Outlet />
+                </div>
               </div>
               <Footer />
             </div>
-          </div>
-        </FavesProvider>
-      </CartProvider>
+          </GlobalNotifProvider>
+        </GlobalCartListProvider>
+      </FavesProvider>
     </ProductListProvider>
   );
 };

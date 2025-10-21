@@ -1,10 +1,7 @@
-import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { App } from './modules/components/App';
 import { HomePage } from './modules/components/HomePage';
 import { ProductListPage } from './modules/components/ProductListPage';
-import { NavAside } from './modules/components/NavAside';
-import { AppContent } from './modules/components/AppContent';
-import { AnimatePresence } from 'framer-motion';
 import { ProductItem } from './modules/components/ProductListPage/components/ProductItem';
 import { Favourites } from './modules/components/Favourites';
 import { Cart } from './modules/components/Cart';
